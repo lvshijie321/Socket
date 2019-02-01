@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_socket" default="compile.module.socket">
+  <dirname property="module.socket.basedir" file="${ant.file.module_socket}"/>
+  
+  <property name="module.jdk.home.socket" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.socket" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.socket" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.socket" value="-encoding UTF-8 -source 11 -target 11 ${compiler.args}"/>
+  
+  <property name="socket.output.dir" value="${module.socket.basedir}/../../out/production/Socket"/>
+  <property name="socket.testoutput.dir" value="${module.socket.basedir}/../../out/test/Socket"/>
+  
+  <path id="socket.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="socket.module.production.classpath">
+    <path refid="${module.jdk.classpath.socket}"/>
+  </path>
+  
+  <path id="socket.runtime.production.module.classpath">
+    <pathelement location="${socket.output.dir}"/>
+  </path>
+  
+  <path id="socket.module.classpath">
+    <path refid="${module.jdk.classpath.socket}"/>
+    <pathelement location="${socket.output.dir}"/>
+  </path>
+  
+  <path id="socket.runtime.module.classpath">
+    <pathelement location="${socket.testoutput.dir}"/>
+    <pathelement location="${socket.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.socket">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.socket">
+    <patternset refid="excluded.from.module.socket"/>
+  </patternset>
+  
+  
+  <target name="compile.module.socket" depends="compile.module.socket.production,compile.module.socket.tests" description="Compile module Socket"/>
+  
+  <target name="compile.module.socket.production" depends="register.custom.compilers" description="Compile module Socket; production classes"/>
+  
+  <target name="compile.module.socket.tests" depends="register.custom.compilers,compile.module.socket.production" description="compile module Socket; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.socket" description="cleanup module">
+    <delete dir="${socket.output.dir}"/>
+    <delete dir="${socket.testoutput.dir}"/>
+  </target>
+</project>
