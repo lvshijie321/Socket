@@ -1,4 +1,4 @@
-package lesson_02_UDP;
+package lesson_02_01_UDP;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
