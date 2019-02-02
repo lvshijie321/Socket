@@ -1,8 +1,7 @@
-*.js linguist-language=JavaScript
+*.js linguist-language=Java
 
-*.css linguist-language=JavaScript
+*.css linguist-language=Java
 
-*.html linguist-language=JavaScript
+*.html linguist-language=Java
 
-
-*.java linguist-language=JavaScript
+*.java linguist-language=Java
