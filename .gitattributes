@@ -3,3 +3,6 @@
 *.css linguist-language=JavaScript
 
 *.html linguist-language=JavaScript
+
+
+*.java linguist-language=JavaScript
