@@ -43,7 +43,6 @@ public class UDPProvider {
 
                     // 构建接收数据包
                     final byte[] buf = new byte[512];
-                    System.out.println(buf.length);
                     DatagramPacket receivePack = new DatagramPacket(buf, buf.length);
 
                     // 接收（阻塞）
@@ -93,7 +92,7 @@ public class UDPProvider {
         }
 
         void exit() {
-            done = true;
+            done = true; // 仅仅赋值 done = true 不会停止循环，因为循环体内正阻塞，必须调用 close 方法，是的发生异常，最后进入 finally
             close();
         }
     }
